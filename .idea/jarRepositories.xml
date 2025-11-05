@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="1_onevz-integration-qa" />
+      <option name="name" value="1_onevz-integration-qa" />
+      <option name="url" value="https://oneartifactoryci.verizon.com/artifactory/EV6V_CXP-virtual/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="spring-milestones" />
+      <option name="name" value="Spring Milestones" />
+      <option name="url" value="https://repo.spring.io/milestone" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="b6vv.cxp" />
+      <option name="name" value="b6vv.cxp" />
+      <option name="url" value="https://oneartifactoryci.verizon.com/artifactory/B6VV_CXP-virtual" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="spring-snapshots" />
+      <option name="name" value="Spring Snapshots" />
+      <option name="url" value="https://repo.spring.io/snapshot" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="dagv.release" />
+      <option name="name" value="dagv-release" />
+      <option name="url" value="https://oneartifactoryci.verizon.com/artifactory/DAGV_DAGV-virtual" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="1_onevz-bddapitesting" />
+      <option name="name" value="libs-release" />
+      <option name="url" value="https://oneartifactoryci.verizon.com/artifactory/jhnv-vzw_digitalfirst-maven-virtual" />
+    </remote-repository>
+  </component>
+</project>
