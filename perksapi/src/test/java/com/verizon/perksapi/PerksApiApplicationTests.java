@@ -5,7 +5,6 @@ import com.verizon.perksapi.model.Perk;
 import com.verizon.perksapi.service.PerkService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
@@ -13,6 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.hamcrest.Matchers.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -20,14 +20,6 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
-@SpringBootTest
-class PerksApiApplicationTests {
-
-    @Test
-    void contextLoads() {
-    }
-}
 
 @WebMvcTest(PerkController.class)
 class PerkControllerTests {
@@ -70,7 +62,7 @@ class PerkControllerTests {
     @Test
     void getPerkById_shouldReturnPerk_whenValidId() throws Exception {
         Perk perk = new Perk(1L, "Disney+ Hulu ESPN+ with Ads", 14.99, 10.00);
-        when(perkService.getPerkById(1L)).thenReturn(perk);
+        when(perkService.getPerkById(1L)).thenReturn(Optional.of(perk));
 
         mockMvc.perform(get("/api/perks/1"))
                 .andExpect(status().isOk())
@@ -82,7 +74,7 @@ class PerkControllerTests {
 
     @Test
     void getPerkById_shouldReturnNotFound_whenInvalidId() throws Exception {
-        when(perkService.getPerkById(999L)).thenReturn(null);
+        when(perkService.getPerkById(999L)).thenReturn(Optional.empty());
 
         mockMvc.perform(get("/api/perks/999"))
                 .andExpect(status().isNotFound());
