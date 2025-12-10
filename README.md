@@ -370,4 +370,3 @@ mvn clean package -DskipTests
 5. Open a Pull Request
 
 CI must pass before the PR is merged.
-```
