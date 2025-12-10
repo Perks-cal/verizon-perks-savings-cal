@@ -1,14 +1,3 @@
-Here’s a much more **professional, “portfolio-ready” `README.md`** for your project, reflecting:
-
-* React frontend on Render
-* Spring Boot backend in `perksapi`
-* CI/CD with GitHub Actions
-* The tiered requirements you pasted
-
-You can copy this as-is into `README.md` at the root of your repo and tweak small bits (like backend URL) later.
-
----
-
 ````markdown
 # 📱 Verizon Perks Savings Calculator
 
