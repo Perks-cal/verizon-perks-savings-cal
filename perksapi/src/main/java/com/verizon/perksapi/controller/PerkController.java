@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/perks")
-@CrossOrigin(origins = "http://localhost:3000") // <--- THIS LINE IS CRITICAL
+@CrossOrigin(origins = "*")  // <-- Allow all origins for testing
 public class PerkController {
 
     private final PerkService perkService;
