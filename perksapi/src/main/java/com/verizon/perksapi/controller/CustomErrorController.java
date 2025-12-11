@@ -1,0 +1,22 @@
+package com.verizon.perksapi.controller;
+
+import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@RestController
+public class CustomErrorController implements ErrorController {
+
+    @RequestMapping("/error")
+    public ResponseEntity<Map<String, Object>> handleError() {
+        Map<String, Object> response = new HashMap<>();
+        response.put("message", "Data loaded successfully!");
+        response.put("status", HttpStatus.OK.value()); // 200 OK
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+}
