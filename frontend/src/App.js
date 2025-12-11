@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react';
 // This function attempts to fetch data from your Spring Boot backend.
 // Ensure your Spring Boot backend is running on http://localhost:8081.
 const fetchPerksData = async () => {
-  const apiUrl = 'http://localhost:8081/api/perks';
+  const apiUrl = "https://verizon-perks-savings-cal-2.onrender.com/api/perks";
+
   console.log(`Attempting to fetch data from: ${apiUrl}`);
 
   try {
