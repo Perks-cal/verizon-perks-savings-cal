@@ -2,9 +2,9 @@ name: CI & CD (Frontend + Backend)
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "sameera" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "sameera" ]
 
 jobs:
   frontend-ci:
