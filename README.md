@@ -1,13 +1,13 @@
 ````markdown
 # 📱 Verizon Perks Savings Calculator
 
-The **Verizon Perks Savings Calculator** is a full-stack web application that helps users understand how much they can save by subscribing to streaming and other digital services through Verizon “Perks” instead of paying standalone prices.
+The Verizon Perks Savings Calculator is a full-stack web application that helps users understand how much they can save by subscribing to streaming and other digital services through Verizon “Perks” instead of paying standalone prices.
 
 Users can:
 
 - View a list of available perks
-- Compare **standalone subscription cost vs Verizon perk price**
-- See **monthly savings** and totals
+- Compare standalone subscription cost vs Verizon perk price
+- See monthly savings and totals
 - (Developer) Manage perks via a full CRUD API
 
 > This project is built as a capstone-style app with multiple tiers: MVP CRUD, CI/CD, and a roadmap toward authentication and security.
@@ -16,12 +16,11 @@ Users can:
 
 ## 🌐 Live Application
 
-- **Frontend (React)**  
+- Frontend (React)
   🔗 `https://verizon-perks-savings-cal-exs9.onrender.com/`
 
-- **Backend (Spring Boot API)**  
-  🔗 _Backend Render URL_ → `https://<your-backend-service>.onrender.com`  
-  (update here once deployed)
+- Backend (Spring Boot API)
+  🔗 _Backend Render URL_ → `https://verizon-perks-savings-cal-2.onrender.com/`  
 
 ---
 
@@ -29,7 +28,7 @@ Users can:
 
 ### 💻 Frontend
 
-- Modern **React** SPA
+- Modern React SPA
 - Clean UX designed around the Perks comparison use case
 - Displays:
   - List of available perks (e.g., Disney+ / Hulu / ESPN+, Netflix & Max, Apple One, etc.)
@@ -40,8 +39,8 @@ Users can:
 
 ### ⚙️ Backend (REST API)
 
-- **Spring Boot** REST API in `/perksapi`
-- Full **CRUD** for perks:
+- Spring Boot** REST API in `/perksapi`
+- Full CRUD for perks:
   - `GET /api/perks` – list all perks
   - `GET /api/perks/{id}` – get perk by id
   - `POST /api/perks` – create a new perk
@@ -52,13 +51,13 @@ Users can:
 
 ### 🔄 CI/CD & DevOps
 
-- **GitHub Actions** workflow (`.github/workflows/ci-cd.yml`) that:
-  - Builds & tests the **frontend**
-  - Builds the **backend** (tests can be configured/skipped as needed)
-  - Triggers **automatic deployments to Render** via deploy hooks when changes are pushed to `main`
+- GitHub Actions** workflow (`.github/workflows/ci-cd.yml`) that:
+  - Builds & tests the frontend
+  - Builds the backend (tests can be configured/skipped as needed)
+  - Triggers automatic deployments to Render via deploy hooks when changes are pushed to `main`
 - Suitable for:
-  - **Tier 2:** Continuous Deployment  
-  - **Tier 3:** Continuous Integration + branch protection rules
+  - Tier 2: Continuous Deployment  
+  - Tier 3: Continuous Integration + branch protection rules
 
 ---
 
@@ -124,21 +123,20 @@ root/
 * JavaScript / JSX
 * Fetch API / Axios (for HTTP calls)
 * Jest + React Testing Library (for unit tests)
-* Deployed on **Render** (static site / web service)
+* Deployed on Render (web service)
 
 ### Backend
 
-* **Java 17**
-* **Spring Boot 3**
+* Java 17
+* Spring Boot 3
 * Spring Web (REST)
 * Spring Data JPA
 * Maven
-* In-memory DB / external DB (depending on configuration)
-* Deployed on **Render** (web service)
+* Deployed on Render (web service)
 
 ### DevOps
 
-* **GitHub Actions**
+* GitHub Actions
 * Render Deploy Hooks
 * Branch Protection Rules (Tier 3)
 * Node 20 & Maven builds in CI
@@ -218,20 +216,6 @@ By default, the frontend runs at:
 http://localhost:3000
 ```
 
-Make sure the frontend is configured to call the backend via an environment variable, e.g.:
-
-* `frontend/.env`:
-
-```env
-REACT_APP_API_URL=http://localhost:8080
-```
-
-Then in your frontend code:
-
-```js
-const API_BASE_URL = process.env.REACT_APP_API_URL;
-```
-
 ---
 
 ## 🔌 API Overview
@@ -242,11 +226,6 @@ Base URL (local):
 http://localhost:8080/api/perks
 ```
 
-Base URL (production, example):
-
-```text
-https://<your-backend-service>.onrender.com/api/perks
-```
 
 ### Endpoints
 
@@ -269,97 +248,6 @@ https://<your-backend-service>.onrender.com/api/perks
 ```
 
 ---
-
-## 🔄 CI/CD with GitHub Actions & Render
-
-The CI/CD pipeline is defined in:
-
-```text
-.github/workflows/ci-cd.yml
-```
-
-### Workflow Summary
-
-* **Triggers**:
-
-  * `push` to `main`
-  * `pull_request` targeting `main`
-* **Jobs**:
-
-  * `frontend-ci`
-
-    * Installs dependencies
-    * Runs tests
-    * Builds production bundle
-  * `backend-ci`
-
-    * Builds the Spring Boot app (optionally skipping tests)
-  * `deploy`
-
-    * Runs only on `push` to `main`
-    * Triggers frontend & backend deploys on Render via deploy hooks
-
-### Secrets Required (GitHub → Settings → Secrets and variables → Actions)
-
-* `RENDER_HOOK_FRONTEND` – Render deploy hook URL for frontend service
-* `RENDER_HOOK_BACKEND` – Render deploy hook URL for backend service
-
----
-
-## 🧪 Testing
-
-### Frontend Tests
-
-From `frontend/`:
-
-```bash
-npm test
-```
-
-Typical tests:
-
-* Component rendering
-* Core interactions / UI behavior
-
-### Backend Tests
-
-From `perksapi/`:
-
-```bash
-mvn test
-```
-
-If certain tests are unstable or still under development, they can be skipped during CI builds via:
-
-```bash
-mvn clean package -DskipTests
-```
-
-(This is the command used in CI/CD until tests are fully stabilized.)
-
----
-
-## 🎯 Mapping to Tier Requirements
-
-### Tier 1 – MVP, CRUD & REST
-
-* ✅ React frontend with organized UI and UX
-* ✅ Users can view and interact with perk data
-* ✅ Backend exposes full CRUD via RESTful endpoints
-* ✅ Data organized logically for comparison and savings
-
-### Tier 2 – Deployed Application via Continuous Deployment
-
-* ✅ App deployed to **Render** (frontend + backend)
-* ✅ GitHub Actions workflow configured
-* ✅ Automatic deployment triggered on `push` to `main`
-
-### Tier 3 – Continuous Integration
-
-* ✅ CI pipeline runs on **pull requests**
-* ✅ Frontend tests run before merging
-* ✅ Backend build verifies compilation & packaging
-* ✅ Branch protection rule can require CI checks to pass before merging to `main`
 
 ## 🤝 Contributing
 
