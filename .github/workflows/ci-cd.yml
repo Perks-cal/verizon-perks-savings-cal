@@ -50,7 +50,7 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-          cache: maven
+          cache: maven                                     # trigger ci
 
       - name: Run tests
         run: mvn -B test
