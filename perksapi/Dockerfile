@@ -1,15 +1,15 @@
-# Use an official OpenJDK 17 image
+# Use a reliable JDK base image
 FROM eclipse-temurin:17-jdk
 
-# Set working directory inside container
+# Set working directory
 WORKDIR /app
 
-# Copy Maven wrapper and config
+# Copy Maven wrapper and Maven configuration
 COPY mvnw .
 COPY .mvn .mvn
 COPY pom.xml .
 
-# Give execute permission to mvnw
+# Make mvnw executable
 RUN chmod +x mvnw
 
 # Download dependencies to cache them
@@ -18,14 +18,11 @@ RUN ./mvnw dependency:go-offline -B
 # Copy the source code
 COPY src ./src
 
-# Build the Spring Boot jar, skip tests for faster builds
+# Build the application
 RUN ./mvnw clean package -DskipTests
 
-# Copy the built jar to a fixed name
-RUN cp target/*.jar app.jar
+# Expose the port your Spring Boot app will run on
+EXPOSE 8080
 
-# Expose the port your Spring Boot app uses
-EXPOSE 8081
-
-# Run the jar
-CMD ["java", "-jar", "app.jar"]
+# Default command to run the Spring Boot jar
+CMD ["java", "-jar", "target/perksapi-0.0.1-SNAPSHOT.jar"]
