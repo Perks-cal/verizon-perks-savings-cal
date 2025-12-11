@@ -2,9 +2,12 @@ name: CI & CD (Frontend + Backend)
 
 on:
   push:
-    branches: [ "sameera" ]
+    branches:
+      - sameera
   pull_request:
-    branches: [ "sameera" ]
+    branches:
+      - sameera
+  workflow_dispatch:
 
 jobs:
   frontend-ci:
@@ -21,7 +24,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18
           cache: npm
           cache-dependency-path: frontend/package-lock.json
 
@@ -30,9 +33,13 @@ jobs:
 
       - name: Run tests
         run: npm test -- --watch=false
+        env:
+          CI: true
 
       - name: Build app
         run: npm run build
+        env:
+          CI: false
 
   backend-ci:
     name: Backend – Build & Test (perksapi)
@@ -50,7 +57,7 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-          cache: maven                                     # trigger ci
+          cache: maven
 
       - name: Run tests
         run: mvn -B test
@@ -61,7 +68,7 @@ jobs:
   deploy:
     name: Deploy to Render
     needs: [frontend-ci, backend-ci]
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/sameera'
     runs-on: ubuntu-latest
 
     steps:
