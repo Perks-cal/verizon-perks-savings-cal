@@ -8,7 +8,8 @@ const fetchPerksData = async () => {
   console.log(`Attempting to fetch data from: ${apiUrl}`);
 
   try {
-    const response = await fetch(apiUrl);
+    const response = await fetch('https://verizon-perks-savings-cal-2.onrender.com/api/perks');
+
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status} - ${response.statusText || 'Unknown Error'}`);
     }
