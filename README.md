@@ -1,64 +1,87 @@
-````markdown
 # 📱 Verizon Perks Savings Calculator
 
-The Verizon Perks Savings Calculator is a full-stack web application that helps users understand how much they can save by subscribing to streaming and other digital services through Verizon “Perks” instead of paying standalone prices.
+The **Verizon Perks Savings Calculator** is a **full-stack web application** that helps users understand how much they can save by subscribing to streaming and digital services through **Verizon Perks** instead of paying standalone subscription prices.
 
-Users can:
+This project is designed as a **capstone-style deployment application**, showcasing **frontend development, backend API design, CI/CD automation, and cloud deployment** using modern tools and best practices.
 
-- View a list of available perks
-- Compare standalone subscription cost vs Verizon perk price
-- See monthly savings and totals
-- (Developer) Manage perks via a full CRUD API
-
-> This project is built as a capstone-style app with multiple tiers: MVP CRUD, CI/CD, and a roadmap toward authentication and security.
-
-
- 🌐 Live Application
-
-- Frontend (React)
-  🔗 `https://verizon-perks-savings-cal-exs9.onrender.com/`
-
-- Backend (Spring Boot API)
-  🔗 _Backend Render URL_ → `https://verizon-perks-savings-cal-2.onrender.com/`  
+> ⚠️ **Disclaimer:** This is an educational project created for learning and demonstration purposes only and is **not an official Verizon tool**.
 
 ---
 
- 🧩 Key Features
+## 🌐 Live Application
 
-  💻 Frontend
+- **Frontend (React)**  
+  🔗 https://verizon-perks-savings-cal-exs9.onrender.com/
 
-- Modern React SPA
-- Clean UX designed around the Perks comparison use case
+- **Backend (Spring Boot API)**  
+  🔗 https://verizon-perks-savings-cal-2.onrender.com/
+
+---
+
+## 🎯 What Users Can Do
+
+- View a list of available Verizon perks
+- Compare standalone subscription prices with Verizon perk prices
+- See calculated **monthly savings** per perk
+- View total potential savings
+- (Developer feature) Manage perks using a full **CRUD REST API**
+
+---
+
+## 🧩 Key Features
+
+### 💻 Frontend (React)
+
+- Modern **Single Page Application (SPA)** built with React
+- Clean and intuitive UI focused on price comparison
 - Displays:
-  - List of available perks (e.g., Disney+ / Hulu / ESPN+, Netflix & Max, Apple One, etc.)
-  - Original standalone subscription price
-  - Discounted Verizon Perk price
-  - Calculated savings per perk and total savings
-- Responsive layout and organized data presentation
+  - Available perks (e.g., Disney+ / Hulu / ESPN+, Netflix & Max, Apple One)
+  - Standalone subscription price
+  - Discounted Verizon perk price
+  - Calculated monthly savings
+- Responsive layout for better user experience
+- API-driven data rendering
 
-  ⚙️ Backend (REST API)
+---
 
-- Spring Boot** REST API in `/perksapi`
-- Full CRUD for perks:
-  - `GET /api/perks` – list all perks
-  - `GET /api/perks/{id}` – get perk by id
-  - `POST /api/perks` – create a new perk
-  - `PUT /api/perks/{id}` – update an existing perk
-  - `DELETE /api/perks/{id}` – delete a perk
+### ⚙️ Backend (Spring Boot REST API)
+
+- Built using **Spring Boot 3**
+- RESTful API located in `/perksapi`
+- Full CRUD support for perks:
+  - `GET /api/perks` – Retrieve all perks
+  - `GET /api/perks/{id}` – Retrieve a perk by ID
+  - `POST /api/perks` – Create a new perk
+  - `PUT /api/perks/{id}` – Update an existing perk
+  - `DELETE /api/perks/{id}` – Delete a perk
 - JSON-based API designed for frontend consumption
-- Configurable persistence (e.g., in-memory DB for local dev, external DB for production)
+- Configurable persistence:
+  - In-memory database for local development
+  - External database support for production
+- Proper CORS configuration for frontend-backend communication
 
-  🔄 CI/CD & DevOps
+---
 
-- GitHub Actions** workflow (`.github/workflows/ci-cd.yml`) that:
-  - Builds & tests the frontend
-  - Builds the backend (tests can be configured/skipped as needed)
-  - Triggers automatic deployments to Render via deploy hooks when changes are pushed to `main`
-- Suitable for:
-  - Tier 2: Continuous Deployment  
-  - Tier 3: Continuous Integration + branch protection rules
+### 🔄 CI/CD & DevOps
 
-   🏗 Architecture
+- **GitHub Actions** workflow (`.github/workflows/ci-cd.yml`) that:
+  - Installs dependencies
+  - Builds the frontend and backend
+  - Runs automated tests (configurable)
+  - Triggers deployment to Render on push to `main`
+- Enables:
+  - **Continuous Integration (CI)**
+  - **Continuous Deployment (CD)**
+  - Scalable, production-ready workflows
+- Compatible with:
+  - Tier 2: Continuous Deployment
+  - Tier 3: CI + Branch Protection Rules
+
+---
+
+## 🏗 Architecture
+
+```text
          ┌──────────────────────────┐
          │        Frontend          │
          │      (React SPA)         │
@@ -75,14 +98,17 @@ Users can:
          │    (Spring Boot API)     │
          │                          │
          │  - REST controllers      │
-         │  - Services / business   │
-         │    logic                 │
+         │  - Business logic        │
          │  - Repository / JPA      │
-         │  - DB / persistence      │
+         │  - Data persistence      │
          └──────────────────────────┘
+```
 
-   📂 Project Structure
+---
 
+## 📂 Project Structure
+
+```text
 root/
 ├── frontend/                 # React frontend
 │   ├── src/
@@ -97,36 +123,36 @@ root/
 │   │   │   └── resources/application.properties
 │   │   └── test/java/com/verizon/perksapi/...
 │   ├── pom.xml
-│   └── target/               # build artifacts (ignored by Git)
+│   └── target/               # Build artifacts (ignored by Git)
 │
 └── .github/
-    └── workflows/
+    └── workflows/            # CI/CD pipelines
+```
 
- 🛠 Tech Stack
+---
+
+## 🛠 Tech Stack
 
 ### Frontend
-
-* **React**
-* JavaScript / JSX
-* Fetch API / Axios (for HTTP calls)
-* Jest + React Testing Library (for unit tests)
-* Deployed on Render (web service)
+- React
+- JavaScript / JSX
+- Fetch API / Axios
+- Jest & React Testing Library
+- Deployed on Render
 
 ### Backend
-
-* Java 17
-* Spring Boot 3
-* Spring Web (REST)
-* Spring Data JPA
-* Maven
-* Deployed on Render (web service)
+- Java 17
+- Spring Boot 3
+- Spring Web (REST)
+- Spring Data JPA
+- Maven
+- Deployed on Render
 
 ### DevOps
-
-* GitHub Actions
-* Render Deploy Hooks
-* Branch Protection Rules (Tier 3)
-* Node 20 & Maven builds in CI
+- GitHub Actions
+- Render Deploy Hooks
+- Docker (containerization)
+- Node 20 & Maven builds in CI
 
 ---
 
@@ -134,11 +160,11 @@ root/
 
 ### ✅ Prerequisites
 
-* Node.js (v18+ or v20)
-* npm
-* Java 17
-* Maven 3.9+
-* Git
+- Node.js (v18+ or v20)
+- npm
+- Java 17
+- Maven 3.9+
+- Git
 
 ---
 
@@ -151,45 +177,22 @@ cd verizon-perks-savings-cal
 
 ---
 
-### 2️⃣ Backend – Run Spring Boot API
-
-From the project root:
+### 2️⃣ Run Backend (Spring Boot)
 
 ```bash
 cd perksapi
-```
-
-#### Build (skip tests if necessary)
-
-```bash
 mvn clean package -DskipTests
-```
-
-#### Run the application
-
-```bash
 mvn spring-boot:run
-# or
-java -jar target/perksapi-0.0.1-SNAPSHOT.jar
 ```
 
-The backend will be available at:
-
-```text
+Backend runs at:
+```
 http://localhost:8080
-```
-
-Example API call:
-
-```text
-GET http://localhost:8080/api/perks
 ```
 
 ---
 
-### 3️⃣ Frontend – Run React App
-
-In another terminal window, from project root:
+### 3️⃣ Run Frontend (React)
 
 ```bash
 cd frontend
@@ -197,9 +200,8 @@ npm install
 npm start
 ```
 
-By default, the frontend runs at:
-
-```text
+Frontend runs at:
+```
 http://localhost:3000
 ```
 
@@ -208,23 +210,21 @@ http://localhost:3000
 ## 🔌 API Overview
 
 Base URL (local):
-
-```text
+```
 http://localhost:8080/api/perks
 ```
-
 
 ### Endpoints
 
 | Method | Endpoint          | Description             |
-| ------ | ----------------- | ----------------------- |
-| GET    | `/api/perks`      | Get all perks           |
-| GET    | `/api/perks/{id}` | Get perk by ID          |
-| POST   | `/api/perks`      | Create a new perk       |
-| PUT    | `/api/perks/{id}` | Update an existing perk |
-| DELETE | `/api/perks/{id}` | Delete a perk           |
+|------|-------------------|-------------------------|
+| GET  | `/api/perks`      | Get all perks           |
+| GET  | `/api/perks/{id}` | Get perk by ID          |
+| POST | `/api/perks`      | Create a new perk       |
+| PUT  | `/api/perks/{id}` | Update a perk           |
+| DELETE | `/api/perks/{id}` | Delete a perk         |
 
-#### Example `POST /api/perks` Request Body
+### Example Request Body
 
 ```json
 {
@@ -239,9 +239,19 @@ http://localhost:8080/api/perks
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/my-feature`
-3. Commit changes: `git commit -m "Add my feature"`
-4. Push to branch: `git push origin feature/my-feature`
+2. Create a feature branch (`feature/my-feature`)
+3. Commit changes
+4. Push to your branch
 5. Open a Pull Request
 
-CI must pass before the PR is merged.
+✔ CI checks must pass before merging.
+
+---
+
+## 📌 Future Enhancements
+
+- Authentication & authorization
+- Role-based access control
+- Database persistence improvements
+- Enhanced UI/UX
+- Monitoring & logging
