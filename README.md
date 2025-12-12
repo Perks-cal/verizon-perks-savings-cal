@@ -255,3 +255,5 @@ http://localhost:8080/api/perks
 - Database persistence improvements
 - Enhanced UI/UX
 - Monitoring & logging
+
+  youtube: https://youtu.be/K-8uV33AUtc
