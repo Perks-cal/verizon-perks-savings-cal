@@ -12,9 +12,8 @@ Users can:
 
 > This project is built as a capstone-style app with multiple tiers: MVP CRUD, CI/CD, and a roadmap toward authentication and security.
 
----
 
-## 🌐 Live Application
+ 🌐 Live Application
 
 - Frontend (React)
   🔗 `https://verizon-perks-savings-cal-exs9.onrender.com/`
@@ -24,9 +23,9 @@ Users can:
 
 ---
 
-## 🧩 Key Features
+ 🧩 Key Features
 
-### 💻 Frontend
+  💻 Frontend
 
 - Modern React SPA
 - Clean UX designed around the Perks comparison use case
@@ -37,7 +36,7 @@ Users can:
   - Calculated savings per perk and total savings
 - Responsive layout and organized data presentation
 
-### ⚙️ Backend (REST API)
+  ⚙️ Backend (REST API)
 
 - Spring Boot** REST API in `/perksapi`
 - Full CRUD for perks:
@@ -49,7 +48,7 @@ Users can:
 - JSON-based API designed for frontend consumption
 - Configurable persistence (e.g., in-memory DB for local dev, external DB for production)
 
-### 🔄 CI/CD & DevOps
+  🔄 CI/CD & DevOps
 
 - GitHub Actions** workflow (`.github/workflows/ci-cd.yml`) that:
   - Builds & tests the frontend
@@ -59,11 +58,7 @@ Users can:
   - Tier 2: Continuous Deployment  
   - Tier 3: Continuous Integration + branch protection rules
 
----
-
-## 🏗 Architecture
-
-```text
+   🏗 Architecture
          ┌──────────────────────────┐
          │        Frontend          │
          │      (React SPA)         │
@@ -85,13 +80,9 @@ Users can:
          │  - Repository / JPA      │
          │  - DB / persistence      │
          └──────────────────────────┘
-````
 
----
+   📂 Project Structure
 
-## 📂 Project Structure
-
-```text
 root/
 ├── frontend/                 # React frontend
 │   ├── src/
@@ -110,12 +101,8 @@ root/
 │
 └── .github/
     └── workflows/
-        └── ci-cd.yml         # GitHub Actions CI/CD pipeline
-```
 
----
-
-## 🛠 Tech Stack
+ 🛠 Tech Stack
 
 ### Frontend
 
